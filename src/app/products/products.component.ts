@@ -14,6 +14,10 @@ export class ProductsComponent implements OnInit {
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
+    this.handleGetAllProducts();
+  }
+
+  handleGetAllProducts() {
     this.productService.getAllProducts().subscribe({
       next: (data) => {
         this.products = data;
@@ -25,7 +29,16 @@ export class ProductsComponent implements OnInit {
   }
 
   handleDeleteProduct(product: Product) {
-    const index = this.products?.indexOf(product);
-    this.products?.splice(index!, 1);
+    let deletionConfirmation = confirm(
+      `👋 You are deleting ${product.name} from this table`
+    );
+    if (!deletionConfirmation) return;
+
+    this.productService.deleteProduct(product.id).subscribe({
+      next: (data: Boolean) => {
+        let index = this.products?.indexOf(product);
+        this.products?.splice(index!, 1);
+      },
+    });
   }
 }

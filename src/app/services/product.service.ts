@@ -17,13 +17,19 @@ export class ProductService {
     ];
   }
 
-  getAllProducts(): Observable<Product[]> {
-    // let random = Math.random();
-    // if (random > 0.5) {
-    //   return throwError(
-    //     () => new Error('Intentionally provoked error for testing')
-    //   );
-    // }
+  public getAllProducts(): Observable<Product[]> {
+    let random = Math.random();
+    if (random < 0.1) {
+      return throwError(
+        () => new Error('Intentionally provoked error for testing')
+      );
+    }
+
     return of(this.products);
+  }
+
+  public deleteProduct(id: number): Observable<Boolean> {
+    this.products = this.products.filter((p) => p.id != id);
+    return of(true);
   }
 }
