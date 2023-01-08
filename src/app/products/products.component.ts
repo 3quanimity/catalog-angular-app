@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from '../models/product.model';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -7,14 +8,14 @@ import { ProductService } from '../services/product.service';
   styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
-  products: Array<any> | undefined;
+  products: Array<Product> | undefined;
   errorMessage: string = '';
 
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     this.productService.getAllProducts().subscribe({
-      next: (data: any[] | undefined) => {
+      next: (data) => {
         this.products = data;
       },
       error: (err) => {
@@ -23,7 +24,7 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  handleDeleteProduct(product: any) {
+  handleDeleteProduct(product: Product) {
     const index = this.products?.indexOf(product);
     this.products?.splice(index!, 1);
   }
