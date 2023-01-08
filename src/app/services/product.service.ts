@@ -9,11 +9,11 @@ export class ProductService {
   private products!: Array<Product>;
   constructor() {
     this.products = [
-      { id: 1, name: 'Computer', price: 3000 },
-      { id: 2, name: 'Mobile', price: 2000 },
-      { id: 3, name: 'Laptop', price: 4000 },
-      { id: 4, name: 'Tablet', price: 1000 },
-      { id: 5, name: 'Camera', price: 5000 },
+      { id: 1, name: 'Computer', price: 3000, sale: false },
+      { id: 2, name: 'Mobile', price: 2000, sale: false },
+      { id: 3, name: 'Laptop', price: 4000, sale: true },
+      { id: 4, name: 'Tablet', price: 1000, sale: false },
+      { id: 5, name: 'Camera', price: 5000, sale: false },
     ];
   }
 
@@ -31,5 +31,15 @@ export class ProductService {
   public deleteProduct(id: number): Observable<Boolean> {
     this.products = this.products.filter((p) => p.id != id);
     return of(true);
+  }
+
+  public setSale(id: number): Observable<Boolean> {
+    let product = this.products.find((product) => product.id == id);
+    if (product) {
+      product.sale = !product.sale;
+      return of(true);
+    } else {
+      return throwError(() => new Error('Product not found!'));
+    }
   }
 }

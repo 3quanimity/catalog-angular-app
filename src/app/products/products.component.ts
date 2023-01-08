@@ -41,4 +41,16 @@ export class ProductsComponent implements OnInit {
       },
     });
   }
+
+  handleSetSale(product: Product) {
+    let newSaleValue = !product.sale;
+    this.productService.setSale(product.id).subscribe({
+      next: (data) => {
+        product.sale = newSaleValue;
+      },
+      error: (err) => {
+        this.errorMessage = err;
+      },
+    });
+  }
 }
