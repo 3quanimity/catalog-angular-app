@@ -7,6 +7,15 @@
   <div class="card" *ngIf="products; else errors">
     <div class="card-header">Product List</div>
     <div class="card-body">
+      <form [formGroup]="searchFormGroup" (ngSubmit)="handleSearchProducts()">
+        <div class="input-group">
+          <label class="input-group-text">Keyword:</label>
+          <input type="text" class="form-control" formControlName="keyword">
+          <button class="btn btn-info">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </form>
       <table class="table">
         <thead>
           <tr>

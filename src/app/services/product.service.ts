@@ -8,6 +8,7 @@ import { Product } from '../models/product.model';
 export class ProductService {
   private products!: Array<Product>;
   constructor() {
+    // Fake Data Base
     this.products = [
       { id: 1, name: 'Computer', price: 3000, sale: false },
       { id: 2, name: 'Mobile', price: 2000, sale: false },
@@ -41,5 +42,12 @@ export class ProductService {
     } else {
       return throwError(() => new Error('Product not found!'));
     }
+  }
+
+  public searchProducts(keyword: string): Observable<Product[]> {
+    let products = this.products.filter((product) =>
+      product.name.includes(keyword)
+    );
+    return of(products);
   }
 }

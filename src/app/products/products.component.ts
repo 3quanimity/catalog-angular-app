@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Product } from '../models/product.model';
 import { ProductService } from '../services/product.service';
 
@@ -10,10 +11,17 @@ import { ProductService } from '../services/product.service';
 export class ProductsComponent implements OnInit {
   products: Array<Product> | undefined;
   errorMessage: string = '';
+  searchFormGroup!: FormGroup;
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private formBuilderService: FormBuilder
+  ) {}
 
   ngOnInit(): void {
+    this.searchFormGroup = this.formBuilderService.group({
+      keyword: this.formBuilderService.control(null),
+    });
     this.handleGetAllProducts();
   }
 
@@ -51,6 +59,13 @@ export class ProductsComponent implements OnInit {
       error: (err) => {
         this.errorMessage = err;
       },
+    });
+  }
+
+  handleSearchProducts() {
+    let keyword = this.searchFormGroup.value.keyword;
+    this.productService.searchProducts(keyword).subscribe({
+      next: (data) => (this.products = data),
     });
   }
 }
