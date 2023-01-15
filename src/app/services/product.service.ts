@@ -45,7 +45,7 @@ export class ProductService {
     return of(this.products);
   }
 
-  public getPgeProducts(
+  public getPageProducts(
     pageNumber: number,
     pageSize: number
   ): Observable<ProductsPage> {
@@ -74,10 +74,18 @@ export class ProductService {
     }
   }
 
-  public searchProducts(keyword: string): Observable<Product[]> {
-    let products = this.products.filter((product) =>
+  // TODO: refactor this method to remove duplicate code
+  public searchProducts(
+    keyword: string,
+    pageNumber: number,
+    pageSize: number
+  ): Observable<ProductsPage> {
+    let result = this.products.filter((product) =>
       product.name.includes(keyword)
     );
-    return of(products);
+    let index = pageNumber * pageSize;
+    let totalPages = Math.ceil(result.length / pageSize);
+    let productsPage = result.slice(index, index + pageSize);
+    return of({ products: productsPage, pageNumber, pageSize, totalPages });
   }
 }
