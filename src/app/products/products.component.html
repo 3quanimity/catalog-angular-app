@@ -29,7 +29,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let product of products">
-            <td>{{product.id}}</td>
+            <td>{{product.id | shortenUuid}}</td>
             <td>{{product.name}}</td>
             <td>{{product.price}}</td>
             <td><i *ngIf="product.sale" class="bi bi-currency-dollar text-success"></i></td>
