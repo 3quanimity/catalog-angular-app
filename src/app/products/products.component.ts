@@ -10,6 +10,9 @@ import { ProductService } from '../services/product.service';
 })
 export class ProductsComponent implements OnInit {
   products: Array<Product> | undefined;
+  currentPage: number = 1;
+  pageSize: number = 5;
+  totalPages: number = 0;
   errorMessage: string = '';
   searchFormGroup!: FormGroup;
 
@@ -22,7 +25,28 @@ export class ProductsComponent implements OnInit {
     this.searchFormGroup = this.formBuilderService.group({
       keyword: this.formBuilderService.control(null),
     });
-    this.handleGetAllProducts();
+    this.handleGetProductsPage();
+  }
+
+  // TODO: Fix page ZERO
+  handleGetProductsPage() {
+    this.productService
+      .getPgeProducts(this.currentPage, this.pageSize)
+      .subscribe({
+        next: (data) => {
+          this.products = data.products;
+          this.totalPages = data.totalPages;
+          console.log(this.totalPages);
+        },
+        error: (err) => {
+          this.errorMessage = err;
+        },
+      });
+  }
+
+  handlePageChange(pageNumber: number) {
+    this.currentPage = pageNumber;
+    this.handleGetProductsPage();
   }
 
   handleGetAllProducts() {

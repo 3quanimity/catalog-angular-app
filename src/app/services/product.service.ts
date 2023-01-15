@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UUID } from 'angular2-uuid';
 import { Observable, of, throwError } from 'rxjs';
-import { Product } from '../models/product.model';
+import { Product, ProductsPage } from '../models/product.model';
 
 @Injectable({
   providedIn: 'root',
@@ -42,8 +42,21 @@ export class ProductService {
         () => new Error('Intentionally provoked error for testing')
       );
     }
-
     return of(this.products);
+  }
+
+  public getPgeProducts(
+    pageNumber: number,
+    pageSize: number
+  ): Observable<ProductsPage> {
+    let totalPages = Math.ceil(this.products.length / pageSize);
+    let index = pageNumber * pageSize;
+    let productsPage = this.products.slice(index, index + pageSize);
+    // let productsPage = this.products.slice(
+    //   pageNumber * pageSize - pageSize,
+    //   pageNumber * pageSize
+    // );
+    return of({ products: productsPage, pageNumber, pageSize, totalPages });
   }
 
   public deleteProduct(id: string): Observable<Boolean> {
