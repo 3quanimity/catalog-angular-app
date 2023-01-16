@@ -16,7 +16,7 @@ export class AuthenticationService {
         userId: UUID.UUID(),
         userName: 'admin',
         password: 'admin',
-        roles: ['ADMIN, USER'],
+        roles: ['ADMIN', 'USER'],
       },
       {
         userId: UUID.UUID(),

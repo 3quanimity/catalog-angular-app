@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Product } from '../models/product.model';
+import { AuthenticationService } from '../services/authentication.service';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -19,7 +20,8 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private formBuilderService: FormBuilder
+    private formBuilderService: FormBuilder,
+    public authService: AuthenticationService
   ) {}
 
   ngOnInit(): void {

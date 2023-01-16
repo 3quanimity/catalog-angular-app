@@ -23,8 +23,8 @@
             <th>Name</th>
             <th>Price</th>
             <th>Sale</th>
-            <th>Sales Control</th>
-            <th>Delete</th>
+            <th *ngIf="authService.hasRole('ADMIN')">Sales Control</th>
+            <th *ngIf="authService.hasRole('ADMIN')">Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -33,14 +33,14 @@
             <td>{{product.name}}</td>
             <td>{{product.price}}</td>
             <td><i *ngIf="product.sale" class="bi bi-currency-dollar text-success"></i></td>
-            <td>
+            <td *ngIf="authService.hasRole('ADMIN')">
               <button (click)="handleSetSale(product)" class="btn"
                 [ngClass]="product.sale? 'btn-danger' : 'btn-success'">
                 <span *ngIf="!product.sale">Enable Sale</span>
                 <span *ngIf="product.sale">Disable Sale</span>
               </button>
             </td>
-            <td>
+            <td *ngIf="authService.hasRole('ADMIN')">
               <button (click)="handleDeleteProduct(product)" class="btn btn-danger"><i class="bi bi-trash"></i></button>
             </td>
           </tr>
