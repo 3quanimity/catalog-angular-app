@@ -8,6 +8,7 @@ import { CustomersComponent } from './customers/customers.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { ShortenUuidPipe } from './pipes/shorten-uuid.pipe';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ShortenUuidPipe } from './pipes/shorten-uuid.pipe';
     ProductsComponent,
     CustomersComponent,
     ShortenUuidPipe,
+    LoginComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],
