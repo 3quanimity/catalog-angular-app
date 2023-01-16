@@ -4,7 +4,6 @@
       <div class="card-header">Authentication</div>
       <div class="text-danger" *ngIf="errorMessage">{{errorMessage}}</div>
       <div class="card-body">
-        {{userFormGroup.value | json}}
         <form [formGroup]="userFormGroup" (ngSubmit)="handleLogin()">
           <div class="mb-3">
             <label class="form-label">Username</label>

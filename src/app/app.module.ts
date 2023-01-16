@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { ShortenUuidPipe } from './pipes/shorten-uuid.pipe';
 import { LoginComponent } from './login/login.component';
+import { AdminTemplateComponent } from './admin-template/admin-template.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { LoginComponent } from './login/login.component';
     CustomersComponent,
     ShortenUuidPipe,
     LoginComponent,
+    AdminTemplateComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],

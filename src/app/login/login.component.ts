@@ -33,7 +33,7 @@ export class LoginComponent {
       next: (appUser) => {
         this.authService.authenticateUser(appUser).subscribe({
           next: () => {
-            this.router.navigateByUrl('/products');
+            this.router.navigateByUrl('/admin');
           },
         });
       },
