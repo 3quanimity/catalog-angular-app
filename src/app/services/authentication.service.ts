@@ -88,4 +88,15 @@ export class AuthenticationService {
   public isAuthenticated(): boolean {
     return this.authenticatedUser !== undefined;
   }
+
+  /**
+   * logout - Logs out the authenticated user by removing the authenticated user from local storage
+   * and returning an observable of boolean value as true.
+   * @returns {Observable<boolean>} - An observable of boolean value representing the success of the logout
+   */
+  public logout(): Observable<boolean> {
+    this.authenticatedUser = undefined;
+    localStorage.removeItem('authenticatedUser');
+    return of(true);
+  }
 }
