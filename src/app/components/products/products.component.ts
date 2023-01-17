@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Product } from '../models/product.model';
-import { AuthenticationService } from '../services/authentication.service';
-import { ProductService } from '../services/product.service';
+import { Product } from '../../models/product.model';
+import { AuthenticationService } from '../../services/authentication.service';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-products',

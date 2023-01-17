@@ -3,13 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductsComponent } from './products/products.component';
-import { CustomersComponent } from './customers/customers.component';
+import { ProductsComponent } from './components/products/products.component';
+import { CustomersComponent } from './components/customers/customers.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { ShortenUuidPipe } from './pipes/shorten-uuid.pipe';
-import { LoginComponent } from './login/login.component';
-import { AdminTemplateComponent } from './admin-template/admin-template.component';
+import { LoginComponent } from './components/login/login.component';
+import { AdminTemplateComponent } from './components/admin-template/admin-template.component';
 
 @NgModule({
   declarations: [

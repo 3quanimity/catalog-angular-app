@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminTemplateComponent } from './admin-template/admin-template.component';
-import { CustomersComponent } from './customers/customers.component';
+import { AdminTemplateComponent } from './components/admin-template/admin-template.component';
+import { CustomersComponent } from './components/customers/customers.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
-import { LoginComponent } from './login/login.component';
-import { ProductsComponent } from './products/products.component';
+import { LoginComponent } from './components/login/login.component';
+import { ProductsComponent } from './components/products/products.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
