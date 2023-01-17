@@ -5,6 +5,7 @@ import { CustomersComponent } from './components/customers/customers.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { LoginComponent } from './components/login/login.component';
 import { ProductsComponent } from './components/products/products.component';
+import { NewProductComponent } from './components/new-product/new-product.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
     children: [
       { path: 'products', component: ProductsComponent },
       { path: 'customers', component: CustomersComponent },
+      { path: 'newProduct', component: NewProductComponent },
     ],
   },
 ];

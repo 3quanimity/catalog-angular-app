@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Product } from '../../models/product.model';
 import { AuthenticationService } from '../../services/authentication.service';
 import { ProductService } from '../../services/product.service';
@@ -21,7 +22,8 @@ export class ProductsComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private formBuilderService: FormBuilder,
-    public authService: AuthenticationService
+    public authService: AuthenticationService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -103,5 +105,9 @@ export class ProductsComponent implements OnInit {
           console.log(data);
         },
       });
+  }
+
+  handleNewProduct() {
+    this.router.navigateByUrl('/admin/newProduct');
   }
 }

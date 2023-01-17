@@ -88,4 +88,17 @@ export class ProductService {
     let productsPage = result.slice(index, index + pageSize);
     return of({ products: productsPage, pageNumber, pageSize, totalPages });
   }
+
+  public addNewProduct(formValue: {
+    name: string;
+    sale: boolean;
+    price: number;
+  }): Observable<Product> {
+    let newProduct = {
+      id: UUID.UUID(),
+      ...formValue,
+    };
+    this.products.unshift(newProduct);
+    return of(newProduct);
+  }
 }
