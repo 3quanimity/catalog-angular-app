@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ValidationErrors } from '@angular/forms';
 import { UUID } from 'angular2-uuid';
 import { Observable, of, throwError } from 'rxjs';
 import { Product, ProductsPage } from '../models/product.model';
@@ -100,5 +101,32 @@ export class ProductService {
     };
     this.products.unshift(newProduct);
     return of(newProduct);
+  }
+
+  public getProduct(id: string): Observable<Product> {
+    let product = this.products.find((product) => product.id === id);
+    if (product == undefined) {
+      return throwError(() => new Error('Product not found!'));
+    } else {
+      return of(product);
+    }
+  }
+
+  public updateProduct(updatedProduct: Product): Observable<Product> {
+    this.products = this.products.map((product) =>
+      product.id === updatedProduct.id ? updatedProduct : product
+    );
+
+    return of(updatedProduct);
+  }
+
+  public getErrorMessage(fieldName: string, error: ValidationErrors) {
+    if (error['required']) {
+      return `${fieldName} is required!`;
+    } else if (error['minlength']) {
+      return `${fieldName} should have at least ${error['minlength']['requiredLength']} characters!`;
+    } else if (error['min']) {
+      return `${fieldName} should be superior to ${error['min']['min'] - 1}!`;
+    } else return '';
   }
 }

@@ -28,6 +28,7 @@
             <th>Price</th>
             <th>Sale</th>
             <th *ngIf="authService.hasRole('ADMIN')">Sales Control</th>
+            <th *ngIf="authService.hasRole('ADMIN')">Edit</th>
             <th *ngIf="authService.hasRole('ADMIN')">Delete</th>
           </tr>
         </thead>
@@ -43,6 +44,10 @@
                 <span *ngIf="!product.sale">Enable Sale</span>
                 <span *ngIf="product.sale">Disable Sale</span>
               </button>
+            </td>
+            <td *ngIf="authService.hasRole('ADMIN')">
+              <button (click)="handleEditProduct(product)" class="btn btn-success"><i
+                  class="bi bi-pencil-square"></i></button>
             </td>
             <td *ngIf="authService.hasRole('ADMIN')">
               <button (click)="handleDeleteProduct(product)" class="btn btn-danger"><i class="bi bi-trash"></i></button>

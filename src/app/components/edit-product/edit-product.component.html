@@ -1,5 +1,9 @@
 <div class="container mt-3 col-md-6 offset-md-3">
-  <form [formGroup]="productFormGroup" (ngSubmit)="handleAddProduct()">
+  <form [formGroup]="productFormGroup" (ngSubmit)="handleUpdateProduct()">
+    <div class="mb-3">
+      <label class="form-label">ID: </label>
+      <label class="form-label">{{productId}}</label>
+    </div>
     <div class="mb-3">
       <label class="form-label">Name</label>
       <input type="text" formControlName="name" class="form-control">
@@ -21,7 +25,7 @@
       <input type="checkbox" formControlName="sale" class="form-check">
     </div>
     <div class="d-grid">
-      <button [disabled]="productFormGroup.invalid" class="btn btn-info" type="submit">Save</button>
+      <button [disabled]="productFormGroup.invalid" class="btn btn-info" type="submit">Update</button>
     </div>
   </form>
 </div>

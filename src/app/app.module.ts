@@ -11,6 +11,7 @@ import { ShortenUuidPipe } from './pipes/shorten-uuid.pipe';
 import { LoginComponent } from './components/login/login.component';
 import { AdminTemplateComponent } from './components/admin-template/admin-template.component';
 import { NewProductComponent } from './components/new-product/new-product.component';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { NewProductComponent } from './components/new-product/new-product.compon
     LoginComponent,
     AdminTemplateComponent,
     NewProductComponent,
+    EditProductComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],

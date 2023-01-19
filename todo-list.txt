@@ -1,0 +1,2 @@
+Add filters: All Products / Products on Sale / (next to the "new product" button)
+Add checkboxes for custom selections

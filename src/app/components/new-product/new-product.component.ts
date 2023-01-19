@@ -18,7 +18,7 @@ export class NewProductComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private productService: ProductService,
+    public productService: ProductService,
     private router: Router
   ) {}
 
@@ -47,16 +47,5 @@ export class NewProductComponent implements OnInit {
         console.log(err);
       },
     });
-  }
-
-  getErrorMessage(fieldName: string, error: ValidationErrors) {
-    console.log(this.productFormGroup);
-    if (error['required']) {
-      return `${fieldName} is required!`;
-    } else if (error['minlength']) {
-      return `${fieldName} should have at least ${error['minlength']['requiredLength']} characters!`;
-    } else if (error['min']) {
-      return `${fieldName} should be superior to ${error['min']['min'] - 1}!`;
-    } else return '';
   }
 }
