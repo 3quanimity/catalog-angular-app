@@ -1,5 +1,5 @@
 {
-  "homepage": "https://3quanimity.github.io/Event-Manager---Angular-App/",
+  "homepage": "https://3quanimity.github.io/catalog-angular-app/",
   "name": "catalog",
   "version": "0.0.0",
   "scripts": {
@@ -7,7 +7,7 @@
     "start": "ng serve",
     "build": "ng build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist/catalog",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
