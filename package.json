@@ -1,13 +1,10 @@
 {
-  "homepage": "https://3quanimity.github.io/catalog-angular-app/",
   "name": "catalog",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --output-path docs --base-href /catalog-angular-app/",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist/catalog",
+    "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -24,7 +21,6 @@
     "angular2-uuid": "^1.1.1",
     "bootstrap": "^4.6.2",
     "bootstrap-icons": "^1.10.3",
-    "gh-pages": "^4.0.0",
     "jquery": "^3.6.3",
     "popper.js": "^1.16.1",
     "rxjs": "~7.5.0",
