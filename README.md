@@ -1,27 +1,28 @@
-# Catalog
+# Catalog App ![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white) ![RxJS](https://img.shields.io/badge/rxjs-%23B7178C.svg?style=for-the-badge&logo=reactivex&logoColor=white) ![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.5.
+### 👉[Live Preview](https://catalog-angular-app.vercel.app/catalog-angular-app/)
 
-## Development server
+![Catalog Preview](https://i.imgur.com/fcI49tq.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Inspiration & Original Design:
 
-## Code scaffolding
+[Pr. Mohamed YOUSSFI](https://www.youtube.com/@mohamedYoussfi)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Desc:
+The example application manages products: display, search, pagination, deletion, addition, editing, updating, and authentication
 
-## Build
+Use:
+- username: admin & password: admin to login as admin (full privileges)
+- username: user & password: user to login as user (limited privileges)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Through this project, I covered:
+- Angular architecture
+- Fundamental concepts: Modules, Web Components, Data Binding, Services, Pipes, Directives, Routing, Http
+- Creating a template page using Bootstrap and Bootstrap-icons with routing system
+- All aspects of web components
+- Model creation
+- Services and dependency injection
+- Using RXJS Observables
+- Pagination mechanism
+- Creating an authentication system
+- ReactiveForms with form validation
